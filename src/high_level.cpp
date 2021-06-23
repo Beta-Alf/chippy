@@ -13,7 +13,7 @@ void loop()
 }
 
 uint16_t fetch(){
-    return FFFF;
+    return 0xFFFF;
 };
 
 // TODO: register setting on shifts
@@ -123,15 +123,15 @@ void execute(uint16_t opcode)
     }
     // RAND
     if ((opcode & 0xF000) == 0xC000) {
-        pc = get_rand() & cl;
+        get_rand() & cl;
     }
     // Display
     if ((opcode & 0xF000) == 0xD000) {
-        pc = draw(regs[r1], regs[r2], cs);
+        draw(regs[r1], regs[r2], cs);
     }
     // KEY EQ SKIP
     if ((opcode & 0xF0FF) == 0xE09E) {
-        if(key_state(regs[r1]){
+        if(key_state(regs[r1])){
             skip();
         }
     }

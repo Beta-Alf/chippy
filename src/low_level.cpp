@@ -4,6 +4,25 @@
 #include <cstring>
 #include <cassert>
 
+uint8_t screen[SCREEN_SIZE];
+
+
+uint8_t regs[0xF];
+uint16_t i = 0;
+
+uint16_t stack[24];
+uint8_t current_level = 0;
+
+uint16_t delay;
+uint16_t sound;
+
+uint16_t pc;
+
+
+void get_char(uint8_t character){
+
+};
+
 void clear_display(){
     std::memset(screen, 0, SCREEN_SIZE);
 }
@@ -11,7 +30,7 @@ void clear_display(){
 void ret(){
     assert(current_level > 0);
     current_level--;
-    pc = stack[current_level]
+    pc = stack[current_level];
 }
 
 void call(uint16_t address){
@@ -34,11 +53,11 @@ uint16_t get_rand(){
     return 4;
 }
 
-void draw(uint16_t x, uint16_t y, uint16_t height){
+void draw(uint8_t x, uint8_t y, uint8_t height){
     // TODO
 }
 
-bool key_state(uint16_t key){
+bool key_state(uint8_t key){
     // TODO
     return false;
 }

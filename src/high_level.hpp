@@ -1,5 +1,7 @@
 #pragma once
 
+#include <cstdint>
+
 void loop();
 
 uint16_t fetch();

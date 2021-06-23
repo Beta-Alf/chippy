@@ -1,3 +1,5 @@
+#pragma once
+
 #include <cstdint>
 
 void clear_display();
@@ -8,13 +10,15 @@ void skip();
 
 uint16_t get_rand();
 
-void draw(uint16_t x, uint16_t y, uint16_t height);
+void get_char(uint8_t character);
 
-bool key_state(uint16_t key);
+void draw(uint8_t x, uint8_t y, uint8_t height);
+
+bool key_state(uint8_t key);
 
 uint16_t read_key();
 
-void store_bcd(uint16_t number);
+void store_bcd(uint8_t number);
 
 void reg_dump(uint16_t last);
 
