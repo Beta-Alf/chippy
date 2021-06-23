@@ -7,16 +7,16 @@
 uint8_t screen[SCREEN_SIZE];
 
 
-uint8_t regs[0xF];
+uint8_t regs[0xF] = {};
 uint16_t i = 0;
 
-uint16_t stack[24];
+uint16_t stack[24] = {};
 uint8_t current_level = 0;
 
-uint16_t delay;
-uint16_t sound;
+uint16_t delay = 0;
+uint16_t sound = 0;
 
-uint16_t pc;
+uint16_t pc = 0x200;
 
 
 void get_char(uint8_t character){
