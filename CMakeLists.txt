@@ -6,7 +6,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(SOURCES
-    src/main.cpp
     src/high_level.cpp
     src/low_level.cpp
 )
@@ -20,5 +19,25 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-add_executable(chippy
+add_library(machinery
+    STATIC
     ${SOURCES})
+
+add_executable(chippy
+    src/main.cpp)
+
+target_link_libraries(chippy
+    PRIVATE
+    machinery)
+
+enable_testing()
+
+add_executable(tests
+    test/main_test.cpp)
+
+target_link_libraries(
+    tests
+    gtest_main)
+
+include(GoogleTest)
+gtest_discover_tests(tests)
